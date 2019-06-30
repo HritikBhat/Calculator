@@ -290,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
                     if (arrli2.get(i).equals("(") && arrli2.get(i+1).equals("-") && arrli2.get(i+3).equals(")"))
                     {
                         String val = arrli2.get(i+1) + arrli2.get(i+2);
-                        //System.out.println(i);
+
                         arrli2.remove(i+1);
                         //System.out.println(arrli2);
                         arrli2.remove(i+1);
