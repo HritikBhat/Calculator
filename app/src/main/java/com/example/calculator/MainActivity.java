@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                         arrli2.remove(i+1);
                         //System.out.println(arrli2);
                         arrli2.remove(i+1);
-                        //System.out.println(arrli2);
+
                         arrli2.add(i+1,val);
 
                     }}
