@@ -280,7 +280,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "-");
-                return_Number("-");
+                if (arr.get(arr.size()-1).contains("("))
+                    number = number + "-";
+                else
+                    return_Number("-");
             }
         });
         mul.setOnClickListener(new View.OnClickListener() {
