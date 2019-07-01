@@ -1,14 +1,12 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-//import java.lang.*;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // ------------Stack Data Structure-------------------------------
@@ -144,6 +142,16 @@ public class MainActivity extends AppCompatActivity {
     private Button zero, one, two, three, four, five, six, seven, eight, nine;
     private Button add, sub, mul, div, eq, op_brac, cl_brac, clear, dot,back;
     private TextView Display;
+    String number="";
+    ArrayList<String> arr =new ArrayList();
+
+    protected  void return_Number(String sign){
+        arr.add(number);
+        if (!sign.equals(" "))
+            arr.add(sign);
+        System.out.println(arr);
+        number="";
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +163,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String s =Display.getText().toString();
                 Display.setText(s.substring(0,s.length()-1));
+                if (!number.equals(""))
+                {number = number.substring(0, number.length() - 1);
+                    System.out.println(number);}
+                else
+                {
+                    if ((arr.get(arr.size()-1)).length()==1 || arr.get(arr.size()-1).contains("/") || arr.get(arr.size()-1).contains("*") || arr.get(arr.size()-1).contains("+") || arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("(")||arr.get(arr.size()-1).contains(")")||arr.get(arr.size()-1).equals(" ")) {
+                        arr.remove(arr.size() - 1);
+                        System.out.println(arr);
+                    }
+                    else
+                    {
+                        String val =arr.get(arr.size()-1);
+                        arr.remove(arr.size()-1);
+                        val = val.substring(0, val.length() - 1);
+                        arr.add(val);
+                        System.out.println(arr);
+                    }
+
+                }
             }
         });
         //Set OnListener For Clearing the Display
@@ -162,6 +189,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Display.setText("");
+                number="";
+                arr.clear();
             }
         });
 
@@ -170,60 +199,71 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "0");
+                number=number+"0";
+
             }
         });
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "1");
+                number=number+"1";
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "2");
+                number=number+"2";
             }
         });
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "3");
+                number=number+"3";
             }
         });
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "4");
+                number=number+"4";
             }
         });
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "5");
+                number=number+"5";
             }
         });
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "6");
+                number=number+"6";
             }
         });
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "7");
+                number=number+"7";
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "8");
+                number=number+"8";
             }
         });
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "9");
+                number=number+"9";
             }
         });
 
@@ -231,26 +271,32 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + " + ");
+                Display.setText(Display.getText().toString() + "+");
+                return_Number("+");
+
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + " - ");
+                Display.setText(Display.getText().toString() + "-");
+                return_Number("-");
             }
         });
         mul.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + " * ");
+                Display.setText(Display.getText().toString() + "*");
+                return_Number("*");
             }
         });
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + " / ");
+                Display.setText(Display.getText().toString() + "/");
+                return_Number("/");
+
             }
         });
 
@@ -258,47 +304,53 @@ public class MainActivity extends AppCompatActivity {
         op_brac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Display.getText().toString().length()==0)
-                    Display.setText(Display.getText().toString() + "( ");
-                else
-                    Display.setText(Display.getText().toString() + " ( ");
+                Display.setText(Display.getText().toString() + "(");
+                arr.add("(");
             }
         });
         cl_brac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + " ) ");
+                Display.setText(Display.getText().toString() + ")");
+                arr.add("(");
             }
         });
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + ".");
+                number=number+".";
             }
         });
         eq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                return_Number(" ");
                 post_Converter p = new post_Converter();
-                System.out.println(Display.getText());
-                String str[] = Display.getText().toString().split("\\s+");
-                List arrli = new ArrayList();
-                arrli = Arrays.asList(str);
-                ArrayList<String> arrli2 = new ArrayList(arrli);
-                for(int i=0;i<arrli2.size()-3;i++)
+                for (int i=0;i<arr.size();i++)
                 {
-                    if (arrli2.get(i).equals("(") && arrli2.get(i+1).equals("-") && arrli2.get(i+3).equals(")"))
+                    if(arr.get(i).equals(" ")||arr.get(i).equals(""))
+                        arr.remove(i);
+                }
+                System.out.println(arr);
+
+                for(int i=0;i<arr.size()-3;i++)
+                {
+                    if (arr.get(i).equals("(") && arr.get(i+1).equals("-") && arr.get(i+3).equals(")"))
                     {
-                        String val = arrli2.get(i+1) + arrli2.get(i+2);
+                        String val = arr.get(i+1) + arr.get(i+2);
 
-                        arrli2.remove(i+1);
-                        //System.out.println(arrli2);
-                        arrli2.remove(i+1);
+                        arr.remove(i+1);
 
-                        arrli2.add(i+1,val);
+                        arr.remove(i+1);
+
+                        arr.add(i+1,val);
 
                     }}
-                Display.setText(p.start(arrli2));
+                number=p.start(arr);
+                arr.clear();
+                Display.setText(number);
+
             }
         });
 
