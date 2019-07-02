@@ -271,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(arr.size()>0){
+                if(arr.size()>1){
                 if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "+");
                     arr.set(arr.size()-1,"+");
@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(arr.size()>0)
+                if(arr.size()>1)
                 {
                 if (arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                if(arr.size()>0)
+                if(arr.size()>1)
                 {
                 if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("/"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "*");
@@ -323,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(arr.size()>0)
+                if(arr.size()>1)
                 {if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "/");
                     arr.set(arr.size()-1,"/");
