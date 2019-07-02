@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         arr.add(number);
         if (!sign.equals(" "))
             arr.add(sign);
-        //System.out.println(arr);
+        System.out.println(arr);
         number="";
     }
 
@@ -271,35 +271,68 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + "+");
-                return_Number("+");
+                if(arr.size()>0){
+                if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
+                {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "+");
+                    arr.set(arr.size()-1,"+");
+                    System.out.println(arr);
+                }}
+                else {
+                    Display.setText(Display.getText().toString() + "+");
+                    return_Number("+");
+                }
 
             }
         });
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + "-");
-                if (arr.get(arr.size()-1).contains("("))
-                    number = number + "-";
-                else
-                    return_Number("-");
+                if(arr.size()>0)
+                {
+                if (arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
+                {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
+                    arr.set(arr.size()-1,"-");
+                    System.out.println(arr);
+                }}
+                else if (arr.get(arr.size()-1).contains("("))
+                {Display.setText(Display.getText().toString() + "-");
+                    number = number + "-";}
+                else{
+                    Display.setText(Display.getText().toString() + "-");
+                    return_Number("-");}
             }
         });
         mul.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + "*");
-                return_Number("*");
+                if(arr.size()>0)
+                {
+                if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("/"))
+                {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "*");
+                    arr.set(arr.size()-1,"*");
+                    System.out.println(arr);
+                }}
+                else {
+                    Display.setText(Display.getText().toString() + "*");
+                    return_Number("*");
+                }
+
             }
         });
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Display.setText(Display.getText().toString() + "/");
-                return_Number("/");
-
+                if(arr.size()>0)
+                {if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*"))
+                {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "/");
+                    arr.set(arr.size()-1,"/");
+                    System.out.println(arr);
+                }}
+                else {
+                    Display.setText(Display.getText().toString() + "/");
+                    return_Number("/");
+                }
             }
         });
 
