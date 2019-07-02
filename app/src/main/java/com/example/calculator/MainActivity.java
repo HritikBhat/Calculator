@@ -276,7 +276,12 @@ public class MainActivity extends AppCompatActivity {
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "+");
                     arr.set(arr.size()-1,"+");
                     System.out.println(arr);
-                }}
+                }
+                else {
+                    Display.setText(Display.getText().toString() + "+");
+                    return_Number("+");
+                }
+                }
                 else {
                     Display.setText(Display.getText().toString() + "+");
                     return_Number("+");
@@ -293,7 +298,14 @@ public class MainActivity extends AppCompatActivity {
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
                     arr.set(arr.size()-1,"-");
                     System.out.println(arr);
-                }}
+                }
+                else if (arr.get(arr.size()-1).contains("("))
+                {Display.setText(Display.getText().toString() + "-");
+                    number = number + "-";}
+                else{
+                    Display.setText(Display.getText().toString() + "-");
+                    return_Number("-");}
+                }
                 else if (arr.get(arr.size()-1).contains("("))
                 {Display.setText(Display.getText().toString() + "-");
                     number = number + "-";}
@@ -312,7 +324,12 @@ public class MainActivity extends AppCompatActivity {
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "*");
                     arr.set(arr.size()-1,"*");
                     System.out.println(arr);
-                }}
+                }
+                else {
+                    Display.setText(Display.getText().toString() + "*");
+                    return_Number("*");
+                }
+                }
                 else {
                     Display.setText(Display.getText().toString() + "*");
                     return_Number("*");
@@ -328,7 +345,12 @@ public class MainActivity extends AppCompatActivity {
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "/");
                     arr.set(arr.size()-1,"/");
                     System.out.println(arr);
-                }}
+                }
+                else {
+                    Display.setText(Display.getText().toString() + "/");
+                    return_Number("/");
+                }
+                }
                 else {
                     Display.setText(Display.getText().toString() + "/");
                     return_Number("/");
