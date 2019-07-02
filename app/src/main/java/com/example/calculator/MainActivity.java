@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         arr.add(number);
         if (!sign.equals(" "))
             arr.add(sign);
-        System.out.println(arr);
+        //System.out.println(arr);
         number="";
     }
 
@@ -309,13 +309,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + "(");
                 arr.add("(");
+                //System.out.println(arr);
             }
         });
         cl_brac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Display.setText(Display.getText().toString() + ")");
-                arr.add("(");
+                return_Number(")");
+                //System.out.println(arr);
             }
         });
         dot.setOnClickListener(new View.OnClickListener() {
@@ -335,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
                     if(arr.get(i).equals(" ")||arr.get(i).equals(""))
                         arr.remove(i);
                 }
-                System.out.println(arr);
+                System.out.println("Done:"+arr);
 
                 for(int i=0;i<arr.size()-3;i++)
                 {
@@ -350,6 +352,7 @@ public class MainActivity extends AppCompatActivity {
                         arr.add(i+1,val);
 
                     }}
+                System.out.println("Done:"+arr);
                 number=p.start(arr);
                 arr.clear();
                 Display.setText(number);
