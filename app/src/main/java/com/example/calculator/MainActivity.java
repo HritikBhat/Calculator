@@ -145,6 +145,15 @@ public class MainActivity extends AppCompatActivity {
     String number="";
     ArrayList<String> arr =new ArrayList();
 
+    protected  void blank_Remover()
+    {
+        for (int i=0;i<arr.size();i++)
+        {
+            if(arr.get(i).equals(" ")||arr.get(i).equals(""))
+                arr.remove(i);
+        }
+    }
+
     protected  void return_Number(String sign){
         arr.add(number);
         if (!sign.equals(" "))
@@ -161,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                blank_Remover();
                 String s =Display.getText().toString();
                 Display.setText(s.substring(0,s.length()-1));
                 if (!number.equals(""))
@@ -387,11 +397,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 return_Number(" ");
                 post_Converter p = new post_Converter();
-                for (int i=0;i<arr.size();i++)
-                {
-                    if(arr.get(i).equals(" ")||arr.get(i).equals(""))
-                        arr.remove(i);
-                }
+                blank_Remover();
                 System.out.println("Done:"+arr);
 
                 for(int i=0;i<arr.size()-3;i++)
