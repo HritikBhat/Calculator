@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         arr.add(number);
         if (!sign.equals(" "))
             arr.add(sign);
-        System.out.println(arr);
+        //System.out.println(arr);
         number="";
     }
 
@@ -167,30 +167,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupUI_Views();
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                blank_Remover();
-                String s =Display.getText().toString();
-                Display.setText(s.substring(0,s.length()-1));
-                if (!number.equals(""))
-                {number = number.substring(0, number.length() - 1);
-                    System.out.println(number);}
-                else
-                {
-                    if ((arr.get(arr.size()-1)).length()==1 || arr.get(arr.size()-1).contains("/") || arr.get(arr.size()-1).contains("*") || arr.get(arr.size()-1).contains("+") || arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("(")||arr.get(arr.size()-1).contains(")")||arr.get(arr.size()-1).equals(" ")) {
-                        arr.remove(arr.size() - 1);
-                        System.out.println(arr);
-                    }
-                    else
-                    {
-                        String val =arr.get(arr.size()-1);
-                        arr.remove(arr.size()-1);
-                        val = val.substring(0, val.length() - 1);
-                        arr.add(val);
-                        System.out.println(arr);
-                    }
+                //System.out.println(arr.size());
+                if (number.equals("") && arr.size() == 0) {
+                } else {
+                    blank_Remover();
+                    String s = Display.getText().toString();
+                    Display.setText(s.substring(0, s.length() - 1));
+                    if (!number.equals("")) {
+                        number = number.substring(0, number.length() - 1);
+                        System.out.println(number);
+                    } else {
+                        if ((arr.get(arr.size() - 1)).length() == 1 || arr.get(arr.size() - 1).contains("/") || arr.get(arr.size() - 1).contains("*") || arr.get(arr.size() - 1).contains("+") || arr.get(arr.size() - 1).contains("-") || arr.get(arr.size() - 1).contains("(") || arr.get(arr.size() - 1).contains(")") || arr.get(arr.size() - 1).equals(" ")) {
+                            arr.remove(arr.size() - 1);
+                            System.out.println(arr);
+                        } else {
+                            String val = arr.get(arr.size() - 1);
+                            arr.remove(arr.size() - 1);
+                            val = val.substring(0, val.length() - 1);
+                            arr.add(val);
+                            System.out.println(arr);
+                        }
 
+                    }
                 }
             }
         });
@@ -285,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
                 if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "+");
                     arr.set(arr.size()-1,"+");
-                    System.out.println(arr);
+                    //System.out.println(arr);
                 }
                 else {
                     Display.setText(Display.getText().toString() + "+");
@@ -307,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
                 if (arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
                     arr.set(arr.size()-1,"-");
-                    System.out.println(arr);
+                    //System.out.println(arr);
                 }
                 else if (arr.get(arr.size()-1).contains("("))
                 {Display.setText(Display.getText().toString() + "-");
@@ -333,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
                 if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("/"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "*");
                     arr.set(arr.size()-1,"*");
-                    System.out.println(arr);
+                    //System.out.println(arr);
                 }
                 else {
                     Display.setText(Display.getText().toString() + "*");
@@ -354,7 +356,7 @@ public class MainActivity extends AppCompatActivity {
                 {if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*"))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "/");
                     arr.set(arr.size()-1,"/");
-                    System.out.println(arr);
+                    //System.out.println(arr);
                 }
                 else {
                     Display.setText(Display.getText().toString() + "/");
@@ -398,7 +400,7 @@ public class MainActivity extends AppCompatActivity {
                 return_Number(" ");
                 post_Converter p = new post_Converter();
                 blank_Remover();
-                System.out.println("Done:"+arr);
+                //System.out.println("Done:"+arr);
 
                 for(int i=0;i<arr.size()-3;i++)
                 {
@@ -413,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
                         arr.add(i+1,val);
 
                     }}
-                System.out.println("Done:"+arr);
+                //System.out.println("Done:"+arr);
                 number=p.start(arr);
                 arr.clear();
                 Display.setText(number);
