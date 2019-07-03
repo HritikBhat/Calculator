@@ -284,7 +284,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(arr.size()>1){
-                if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
+                    System.out.println();
+                if ((arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))&&(number.equals("")))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "+");
                     arr.set(arr.size()-1,"+");
                     //System.out.println(arr);
@@ -306,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(arr.size()>1)
                 {
-                if (arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))
+                if ((arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))&&number.equals(""))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
                     arr.set(arr.size()-1,"-");
                     //System.out.println(arr);
@@ -332,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(arr.size()>1)
                 {
-                if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("/"))
+                if ((arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("/"))&&number.equals(""))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "*");
                     arr.set(arr.size()-1,"*");
                     //System.out.println(arr);
@@ -353,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(arr.size()>1)
-                {if (arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*"))
+                {if ((arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*"))&&number.equals(""))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "/");
                     arr.set(arr.size()-1,"/");
                     //System.out.println(arr);
