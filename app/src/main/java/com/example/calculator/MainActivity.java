@@ -319,11 +319,15 @@ public class MainActivity extends AppCompatActivity {
                     Display.setText(Display.getText().toString() + "-");
                     return_Number("-");}
                 }
-                else if (arr.get(arr.size()-1).contains("("))
-                {Display.setText(Display.getText().toString() + "-");
-                    number = number + "-";}
-                else{
-                    Display.setText(Display.getText().toString() + "-");
+                try {
+                     if ((arr.get(arr.size() - 1).contains("(")) && number.equals("")) {
+                        Display.setText(Display.getText().toString() + "-");
+                        number = number + "-";
+                    } else {
+                        Display.setText(Display.getText().toString() + "-");
+                        return_Number("-");
+                    }
+                }catch (Exception e){Display.setText(Display.getText().toString() + "-");
                     return_Number("-");}
             }
         });
