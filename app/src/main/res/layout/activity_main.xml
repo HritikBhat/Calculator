@@ -7,17 +7,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#242022"
+    android:weightSum="8"
     tools:context=".MainActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp">
+        android:layout_height="240dp"
+        android:layout_weight="3">
 
         <TextView
             android:id="@+id/Display"
-            android:layout_width="309dp"
+            android:layout_width="wrap_content"
             android:layout_height="102dp"
+            android:layout_weight="1"
             android:layout_marginStart="46dp"
             android:layout_marginLeft="46dp"
             android:layout_marginTop="90dp"
@@ -34,7 +37,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/b_clear"
@@ -90,7 +94,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
         <Button
             android:id="@+id/b7"
             android:layout_width="80sp"
@@ -146,7 +151,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/b4"
@@ -206,7 +212,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/b1"
@@ -265,7 +272,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/b0"
