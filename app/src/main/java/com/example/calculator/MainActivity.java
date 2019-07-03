@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         arr.add(number);
         if (!sign.equals(" "))
             arr.add(sign);
-        //System.out.println(arr);
+        System.out.println(arr);
         number="";
     }
 
@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
                 if ((arr.get(arr.size()-1).contains("-")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))&&(number.equals("")))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "+");
                     arr.set(arr.size()-1,"+");
-                    //System.out.println(arr);
+                    System.out.println(arr);
                 }
                 else {
                     Display.setText(Display.getText().toString() + "+");
@@ -310,9 +310,9 @@ public class MainActivity extends AppCompatActivity {
                 if ((arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))&&number.equals(""))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
                     arr.set(arr.size()-1,"-");
-                    //System.out.println(arr);
+                    System.out.println(arr);
                 }
-                else if (arr.get(arr.size()-1).contains("("))
+                else if (arr.get(arr.size()-1).contains("(") && number.equals(""))
                 {Display.setText(Display.getText().toString() + "-");
                     number = number + "-";}
                 else{
