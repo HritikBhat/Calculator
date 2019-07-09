@@ -305,8 +305,7 @@ public class MainActivity extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(arr.size()>1)
-                {
+                try {
                 if ((arr.get(arr.size()-1).contains("+")||arr.get(arr.size()-1).contains("*")||arr.get(arr.size()-1).contains("/"))&&number.equals(""))
                 {   Display.setText(Display.getText().toString().substring(0,Display.getText().toString().length()-1) + "-");
                     arr.set(arr.size()-1,"-");
@@ -315,18 +314,10 @@ public class MainActivity extends AppCompatActivity {
                 else if (arr.get(arr.size()-1).contains("(") && number.equals(""))
                 {Display.setText(Display.getText().toString() + "-");
                     number = number + "-";}
-                else{
-                    Display.setText(Display.getText().toString() + "-");
+                else
+                {Display.setText(Display.getText().toString() + "-");
                     return_Number("-");}
-                }
-                try {
-                     if ((arr.get(arr.size() - 1).contains("(")) && number.equals("")) {
-                        Display.setText(Display.getText().toString() + "-");
-                        number = number + "-";
-                    } else {
-                        Display.setText(Display.getText().toString() + "-");
-                        return_Number("-");
-                    }
+
                 }catch (Exception e){Display.setText(Display.getText().toString() + "-");
                     return_Number("-");}
             }
@@ -402,30 +393,35 @@ public class MainActivity extends AppCompatActivity {
         eq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                return_Number(" ");
-                post_Converter p = new post_Converter();
-                blank_Remover();
-                //System.out.println("Done:"+arr);
+                try {
+                    return_Number(" ");
+                    post_Converter p = new post_Converter();
+                    blank_Remover();
+                    //System.out.println("Done:" + arr);
 
-                for(int i=0;i<arr.size()-3;i++)
-                {
-                    if (arr.get(i).equals("(") && arr.get(i+1).equals("-") && arr.get(i+3).equals(")"))
-                    {
-                        String val = arr.get(i+1) + arr.get(i+2);
+                    for (int i = 0; i < arr.size() - 3; i++) {
+                        if (arr.get(i).equals("(") && arr.get(i + 1).equals("-") && arr.get(i + 3).equals(")")) {
+                            String val = arr.get(i + 1) + arr.get(i + 2);
 
-                        arr.remove(i+1);
+                            arr.remove(i + 1);
 
-                        arr.remove(i+1);
+                            arr.remove(i + 1);
 
-                        arr.add(i+1,val);
-
-                    }}
-                //System.out.println("Done:"+arr);
-                number=p.start(arr);
-                arr.clear();
-                Display.setText(number);
-
-            }
+                            arr.add(i + 1, val);
+                        } else if (arr.get(i).equals("-") && i == 0) {
+                            String val = arr.get(i) + arr.get(i + 1);
+                            arr.remove(i);
+                            arr.remove(i);
+                            arr.add(i, val);
+                        }
+                    }
+                    //System.out.println("Done:" + arr);
+                    number = p.start(arr);
+                    arr.clear();
+                    Display.setText(number);
+                }
+                catch (Exception e){Display.setText("#ERROR!");}
+                }
         });
 
 
