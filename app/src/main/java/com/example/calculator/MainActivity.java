@@ -134,7 +134,11 @@ class postfix_Evaluation
             }
             //System.out.println(st.display());
         }
-        return st.peek().replace(".0","");
+
+        String lastTwoDigits = st.peek().substring(st.peek().length() - 2);
+        if (lastTwoDigits.equals(".0"))
+        {return st.peek().replace(".0","");}
+        else{ return st.peek();}
     }
 }
 
