@@ -134,7 +134,7 @@ class postfix_Evaluation
             }
             //System.out.println(st.display());
         }
-        return st.peek();
+        return st.peek().replace(".0","");
     }
 }
 
